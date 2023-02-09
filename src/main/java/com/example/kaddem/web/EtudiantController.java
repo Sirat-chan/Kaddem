@@ -4,10 +4,7 @@ import com.example.kaddem.entities.Etudiant;
 import com.example.kaddem.exceptions.EtudiantNotFoundException;
 import com.example.kaddem.services.EtudiantService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +21,18 @@ public class EtudiantController {
     @GetMapping("/etudiants")
     public List<Etudiant> ListEtudiants(){
         return etudiantService.listEtudiants();
+    }
+    @PostMapping("/add-etudiant")
+    public Etudiant saveEtudiant(@RequestBody Etudiant etudiant){
+        return etudiantService.saveEtudiant(etudiant);
+    }
+    @PutMapping("/update-etudiant/{etudiantId}")
+    public Etudiant updateEtudiant(@PathVariable Long etudiantId, @RequestBody Etudiant etudiant){
+    etudiant.setId(etudiantId);
+    return etudiantService.updateEtudiant(etudiant);
+    }
+    @DeleteMapping("etudiant/{id}")
+    public void deleteEtudiant(@PathVariable Long id){
+       etudiantService.deleteEtudiant(id);
     }
 }

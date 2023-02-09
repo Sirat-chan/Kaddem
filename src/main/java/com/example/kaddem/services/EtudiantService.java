@@ -10,4 +10,9 @@ public interface EtudiantService {
 
     List<Etudiant> listEtudiants();
 
+    Etudiant saveEtudiant(Etudiant etudiant);
+
+    Etudiant updateEtudiant(Etudiant etudiant);
+
+    void deleteEtudiant(Long id);
 }

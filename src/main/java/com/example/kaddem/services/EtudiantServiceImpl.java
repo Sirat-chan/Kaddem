@@ -29,4 +29,22 @@ public class EtudiantServiceImpl implements EtudiantService {
         return etudiants;
     }
 
+    @Override
+    public Etudiant saveEtudiant(Etudiant etudiant) {
+    Etudiant savedEtudiant =etudiantRepository.save(etudiant);
+    return savedEtudiant;
+
+    }
+
+    @Override
+    public Etudiant updateEtudiant(Etudiant etudiant) {
+        Etudiant savedEtudiant = etudiantRepository.save(etudiant);
+        return savedEtudiant;
+    }
+
+    @Override
+    public void deleteEtudiant(Long id) {
+        etudiantRepository.deleteById(id);
+    }
+
 }
